@@ -5,10 +5,9 @@
 **Institución Universitaria Pascual Bravo** · Inteligencia de Negocios · **Grupo 50** · Semestre 2026‑II
 Docente: Ramiro Grisales Montoya
 
-| Integrante | Usuario GitHub |
-|---|---|
-| Yenifer Alenix Medina Salas | @USUARIO_1 |
-| NOMBRE COMPLETO COMPAÑERO/A | @USUARIO_2 |
+Integrantes:
+Valerie Sofia Cardenas Medina
+Juan Sebastian Rodriguez Naranjo
 
 ## Descripción
 
@@ -137,10 +136,10 @@ equipos), sin datos personales (Ley 1581 de 2012).
 
 | Tarea | Responsable |
 |---|---|
-| Consulta Bloques 1 y 2 (Power BI/Grafana, gobernanza) | |
-| Consulta Bloques 3, 4 y 5 (ETL, IoT, versiones) | |
-| Simulador y reglas de calidad (Silver) | |
-| Esquema SQL y carga idempotente (Gold) | |
-| Informe Power BI y medidas DAX | |
-| Dashboard Grafana y exportación JSON | |
-| README, revisión y PDF final | |
+| Consulta Bloques 1 y 2 (Power BI/Grafana, gobernanza) | Valerie Cardenas|
+| Consulta Bloques 3, 4 y 5 (ETL, IoT, versiones) |valerie cardenas |
+| Simulador y reglas de calidad (Silver) | juan sebastian rodriguez|
+| Esquema SQL y carga idempotente (Gold) | juan sebastian rodriguez|
+| Informe Power BI y medidas DAX | Juan sebastian rodriguez valeri cardenas|
+| Dashboard Grafana y exportación JSON | Juan Sebastian Rodriguez|
+| README, revisión y PDF final | Valerie Cardenas|
