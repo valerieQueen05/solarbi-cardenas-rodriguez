@@ -1,0 +1,17 @@
+# Grafana carga este data source automaticamente al arrancar (Docker).
+# La contrasena se toma de la variable de entorno, nunca se escribe aqui.
+apiVersion: 1
+datasources:
+  - name: SolarBI PostgreSQL
+    uid: solarbi-pg
+    type: grafana-postgresql-datasource
+    url: db:5432
+    user: ${PGUSER}
+    jsonData:
+      database: ${PGDATABASE}
+      sslmode: disable
+      postgresVersion: 1600
+      timescaledb: false
+    secureJsonData:
+      password: ${PGPASSWORD}
+    isDefault: true
