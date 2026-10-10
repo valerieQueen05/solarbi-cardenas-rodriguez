@@ -1,0 +1,37 @@
+# PostgreSQL 16 + Grafana OSS para la practica SolarBI.
+#   1) copiar .env.example como .env y poner una contrasena
+#   2) docker compose up -d
+#   3) python etl/run_etl.py
+#   4) abrir http://localhost:3000 (usuario admin / clave GF_ADMIN_PASSWORD)
+services:
+  db:
+    image: postgres:16
+    container_name: solarbi-db
+    environment:
+      POSTGRES_DB: ${PGDATABASE}
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  grafana:
+    image: grafana/grafana-oss:11.2.0
+    container_name: solarbi-grafana
+    depends_on: [db]
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GF_ADMIN_PASSWORD}
+      PGUSER: ${PGUSER}
+      PGPASSWORD: ${PGPASSWORD}
+      PGDATABASE: ${PGDATABASE}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana:/var/lib/grafana/dashboards
+      - grafanadata:/var/lib/grafana
+
+volumes:
+  pgdata:
+  grafanadata:
