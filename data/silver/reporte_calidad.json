@@ -1,0 +1,12 @@
+{
+  "ejecutado_en": "2026-10-08T17:18:24",
+  "archivo_origen": "data/bronze/telemetria.csv",
+  "filas_leidas": 1768,
+  "rechazadas": {
+    "R1_duplicados": 40,
+    "R2_faltantes": 30,
+    "R3_fuera_de_rango": 36
+  },
+  "filas_validas": 1662,
+  "pct_datos_validos": 94.0
+}
