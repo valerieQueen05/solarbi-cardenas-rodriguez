@@ -1,9 +1,5 @@
 # Power BI · Modelo y medidas DAX (SolarBI · G50)
 
-Guarde aquí el archivo `SolarBI_G50.pbix` o, mejor, el proyecto `SolarBI_G50.pbip`
-(Archivo → Guardar como → *Power BI Project*). El formato .pbip guarda el modelo y los
-informes como texto (TMDL/JSON), así Git puede mostrar qué cambió en cada commit.
-
 ## 1. Conexión
 
 1. Power BI Desktop → **Obtener datos → Base de datos PostgreSQL**.
