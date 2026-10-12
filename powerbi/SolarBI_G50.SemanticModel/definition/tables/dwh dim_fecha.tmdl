@@ -1,0 +1,74 @@
+table 'dwh dim_fecha'
+	lineageTag: 841b1d1c-7115-47b2-a561-8e57c002cbdc
+
+	column fecha_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 62595ed8-d44f-4282-a8d9-6c39c89df784
+		summarizeBy: none
+		sourceColumn: fecha_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cfa6037a-dd1c-473d-af86-b0de3ec9f44f
+		summarizeBy: none
+		sourceColumn: fecha
+
+		variation Variación
+			isDefault
+			relationship: 1d1f3f45-1647-43c6-86c1-b6f2f3259328
+			defaultHierarchy: LocalDateTable_93f63845-c52b-4138-b429-4eaf53b73c68.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column anio
+		dataType: int64
+		formatString: 0
+		lineageTag: b3abbbdf-81b5-495d-8f55-5f5dcf6ecf69
+		summarizeBy: sum
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: ad76558b-df7c-4e4e-bcb4-dcbd912e2191
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia
+		dataType: int64
+		formatString: 0
+		lineageTag: 104edd9c-5fab-4ac8-9131-2d681d148f1b
+		summarizeBy: sum
+		sourceColumn: dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_dia
+		dataType: string
+		lineageTag: b5ebdad7-bf8d-4684-8462-8e71a1ae7e4f
+		summarizeBy: none
+		sourceColumn: nombre_dia
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dwh dim_fecha' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost:5432", "solarbi"),
+				    dwh_dim_fecha = Origen{[Schema="dwh",Item="dim_fecha"]}[Data]
+				in
+				    dwh_dim_fecha
+
+	annotation PBI_ResultType = Table
+

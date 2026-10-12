@@ -1,0 +1,66 @@
+table 'dwh dim_dispositivo'
+	lineageTag: 45b6660c-6b27-437e-ba2c-00abd28d3c5d
+
+	column dispositivo_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 411746e2-2543-4c6e-85b1-c9a154df2aad
+		summarizeBy: none
+		sourceColumn: dispositivo_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column dispositivo_id
+		dataType: int64
+		formatString: 0
+		lineageTag: fd8ea41b-3111-471f-950b-b7de85c2636b
+		summarizeBy: none
+		sourceColumn: dispositivo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: 1e6a499c-7e31-4521-872e-fa54a23dd1c4
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo
+		dataType: string
+		lineageTag: 87f7e55d-cdb3-4f99-8fc3-c17180faba8a
+		summarizeBy: none
+		sourceColumn: tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column potencia_kwp
+		dataType: double
+		lineageTag: d75bb463-8389-4a96-b92d-d797ba222574
+		summarizeBy: none
+		sourceColumn: potencia_kwp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sitio
+		dataType: string
+		lineageTag: f0c8f68f-1f1b-4aef-90e8-93ba8ae23573
+		summarizeBy: none
+		sourceColumn: sitio
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dwh dim_dispositivo' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost:5432", "solarbi"),
+				    dwh_dim_dispositivo = Origen{[Schema="dwh",Item="dim_dispositivo"]}[Data]
+				in
+				    dwh_dim_dispositivo
+
+	annotation PBI_ResultType = Table
+

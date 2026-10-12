@@ -1,0 +1,24 @@
+model Model
+	culture: es-CO
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-CO
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dwh dim_dispositivo","dwh dim_fecha","dwh fact_energia_dia"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'dwh dim_dispositivo'
+ref table 'dwh dim_fecha'
+ref table DateTableTemplate_76a26c63-d9e7-4b15-b365-05ce0e038636
+ref table LocalDateTable_93f63845-c52b-4138-b429-4eaf53b73c68
+ref table 'dwh fact_energia_dia'
+ref table LocalDateTable_f347fe26-9258-4800-a38b-bc610ff3ad77
+
+ref cultureInfo es-CO
+

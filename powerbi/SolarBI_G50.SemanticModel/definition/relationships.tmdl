@@ -1,0 +1,22 @@
+relationship 1d1f3f45-1647-43c6-86c1-b6f2f3259328
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'dwh dim_fecha'.fecha
+	toColumn: LocalDateTable_93f63845-c52b-4138-b429-4eaf53b73c68.Date
+
+relationship 25c26543-f5f2-4f56-8fe1-88ec7ada722b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'dwh fact_energia_dia'.actualizado_en
+	toColumn: LocalDateTable_f347fe26-9258-4800-a38b-bc610ff3ad77.Date
+
+relationship b89d0777-730d-4324-9135-d07cf4a99211
+	fromColumn: 'dwh fact_energia_dia'.dispositivo_key
+	toColumn: 'dwh dim_dispositivo'.dispositivo_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 27b50c85-9ea6-4524-bf9b-04c7f14d4572
+	fromColumn: 'dwh fact_energia_dia'.fecha_key
+	toColumn: 'dwh dim_fecha'.fecha_key
+
+	annotation PBI_IsFromSource = FS
+
